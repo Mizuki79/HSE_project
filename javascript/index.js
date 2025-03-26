@@ -28,7 +28,7 @@ function randomPositionInContainer(element, container) {
     line.style.left = `${randomX + 25}px`; // Центрируем линию относительно элемента
     line.style.top = '0px';
     line.style.width = '2px';
-    line.style.height = `${randomY + 10}px`; // Длина линии до элемента
+    line.style.height = `${randomY + 11}px`; // Длина линии до элемента
     line.style.zIndex = 2; 
     line.style.background = '#120d09';
     line.style.borderRadius = '10px'
@@ -39,7 +39,7 @@ function randomPositionInContainer(element, container) {
 
 
 // ставим курсор котика
-function setCustomCursor(imageUrl, hotSpotX = 0, hotSpotY = 0) {
+function setCustomCursor(imageUrl, hotSpotX = 10, hotSpotY = 10) {
     const cursorStyle = `url('${imageUrl}') ${hotSpotX} ${hotSpotY}, auto`;
     document.body.style.cursor = cursorStyle;
 }
@@ -48,8 +48,6 @@ function setCustomCursor(imageUrl, hotSpotX = 0, hotSpotY = 0) {
 document.addEventListener('DOMContentLoaded', () => {
     const lamp = document.getElementById('lamp');
     randomPositionInContainer(lamp, document.body);
-
-    setCustomCursor('https://cdn.custom-cursor.com/db/7648/32/meme-pop-cat-cursor.png');
 })
 
 // получаем элемент затемненного слоя

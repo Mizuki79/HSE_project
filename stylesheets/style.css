@@ -1,58 +1,104 @@
+@font-face {
+    font-family: "Silent River";
+    src: url("../fonts/Silent\ River.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --gen-font: "Silent River", serif;
+    --gen-bg-color: #090123;
+}
+
 html,
 body {
+    font-family: var(--gen-font);
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gen-bg-color);
+    color: aliceblue;
+}
+h1 {
+    font-size: 72px;
 }
 
-/* Затемненный слой */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* пример флип карты */
+.flip-card {
+    margin-top: 30%;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .flip-card-inner {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.99); /* Темный фон */
-    pointer-events: none; /* Чтобы клики проходили сквозь слой */
-    mask-image: radial-gradient(
-        circle 100px at var(--x) var(--y),
-        transparent 0%,
-        black 100%
-    );
-    -webkit-mask-image: radial-gradient(
-        circle 100px at var(--x) var(--y),
-        transparent 0%,
-        black 100%
-    );
-    z-index: 2; /* Убедимся, что слой выше контента */
-}
-
-.content {
     position: relative;
-    z-index: 1;
-    color: white;
-    text-align: center;
-}
-
-.content img { 
-    width: 32px;
-    height: 32px;
-    margin: 10px;
-
-}
-
-.startPage {
-    position: relative;
-    color: white;
-    overflow: visible;
-    z-index: 3;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .flip-card:hover .flip-card-inner,
+  .flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
     display: flex;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .flip-card-front {
+    background: lightblue;
+  }
+  
+  .flip-card-back {
+    background: lightcoral;
+    transform: rotateY(180deg);
+  }
+  
+  /* Первый блок страницы */
+  .block {
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .fst * {
+    position: absolute;
+  }
+  .fst :nth-child(1){
+    width: 393px;
+    height: 393px;
+    left: 10px;
+    top: -55px;
+    rotate: 5deg;
+  }
 
-}
-
-.hello-phrase {
-    font-weight: 20px;
-    font-size: 28px;
-}
+  .fst :nth-child(2){
+    width: 79px;
+    height: 79px;
+    left: 85px;
+    top: 16px;
+  }
+  .fst :nth-child(3){
+    width: 135px;
+    height: 135px;
+    left: 20px;
+    top: 160px;
+    rotate: -15deg;
+  }
+  .fst h1 {
+    position: relative;
+    margin-top: 10%;;
+  }
