@@ -29,21 +29,21 @@ function startRotation(element, speed) {
 }
 
 // Функция для анимации вращения туда сюда
-function startSwing(element, angleRange, speed, initialDirection = 1) {
-    let angle = initialDirection > 0 ? angleRange : -angleRange;
-    let direction = initialDirection;
+// function startSwing(element, angleRange, speed, initialDirection = 1) {
+//     let angle = initialDirection > 0 ? angleRange : -angleRange;
+//     let direction = initialDirection;
     
-    function swing() {
-        angle += direction * speed;
-        if (angle > angleRange || angle < -angleRange) {
-            direction *= -1;
-        }
-        element.style.transform = `rotate(${angle}deg)`;
-        requestAnimationFrame(swing);
-    }
+//     function swing() {
+//         angle += direction * speed;
+//         if (angle > angleRange || angle < -angleRange) {
+//             direction *= -1;
+//         }
+//         element.style.transform = `rotate(${angle}deg)`;
+//         requestAnimationFrame(swing);
+//     }
     
-    swing();
-}
+//     swing();
+// }
 
 const bouble_1 = document.getElementById('bouble-1');
 const bouble_2 = document.getElementById('bouble-2');
@@ -53,10 +53,10 @@ startCircularMotion(bouble_2, 150, 0.01, -1, 130, -50)
 const ring_bouble = document.getElementById('ring_bouble');
 startRotation(ring_bouble, 0.5);
 
-const ring_bouble_1 = document.getElementById('ring_bouble_1');
-const ring_bouble_2 = document.getElementById('ring_bouble_2');
-startSwing(ring_bouble_1, 5, 0.5);
-startSwing(ring_bouble_2, 5, 0.5, -1);
+// const ring_bouble_1 = document.getElementById('ring_bouble_1');
+// const ring_bouble_2 = document.getElementById('ring_bouble_2');
+// startSwing(ring_bouble_1, 5, 0.5);
+// startSwing(ring_bouble_2, 5, 0.5, -1);
 
 document.querySelector(".handdrawn-button").addEventListener("click", () => {
     const textElement = document.querySelector('.handdrawn-button');
@@ -71,6 +71,56 @@ document.querySelector(".handdrawn-button").addEventListener("click", () => {
     textElement2.classList.add('shake');
     setTimeout(() => { 
     document.querySelector(".fst").style.display = "none";
-    document.querySelector(".sec").style.display = "block";
+    document.body.style.overflow = "scroll";
+
     }, 500);
+});
+
+// переключаем классы что бы появлялось свечение
+document.querySelectorAll('.corner-border-element').forEach(element => {
+    element.addEventListener('click', function() {
+        // Проверяем, имеет ли элемент класс corner-border
+        if (this.classList.contains('corner-border')) {
+            // Если имеет, удаляем класс
+            this.classList.remove('corner-border');
+        } else {
+            // Если не имеет, удаляем класс у всех элементов и добавляем к текущему
+            document.querySelectorAll('.corner-border-element').forEach(el => {
+                el.classList.remove('corner-border');
+            });
+            this.classList.add('corner-border');
+        }
+    });
+});
+
+// двигаем спиралью пузырьки
+
+const elements = document.querySelectorAll('.blister');
+elements.forEach(element => {
+    const rect = element.getBoundingClientRect();
+    
+    const startX = rect.left;  // Начальная X-координата элемента
+    const startY = rect.top;   // Начальная Y-координата элемента
+    
+    const maxHeight = window.innerHeight * 0.5; // Максимальная высота подъема
+    let angle = 0;
+    let direction = 1;
+    
+    function animate() {
+        angle += 0.4 * direction;
+        const x = startX + Math.sin(angle) * 40;
+        const y = startY - (angle * 5 * direction);
+        
+        element.style.transform = `translate(${x - rect.left}px, ${y - rect.top}px)`;
+        
+        if (y <= startY - maxHeight) {
+            direction = -1; // Начинаем движение вниз
+        } else if (y >= startY) {
+            direction = 1; // Начинаем движение вверх
+        }
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
 });

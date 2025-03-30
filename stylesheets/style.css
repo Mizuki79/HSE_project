@@ -37,14 +37,18 @@ h1 {
 
 /* пример флип карты */
 .flip-card {
-    margin-top: 30%;
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
+    background-image: url("../images/flip_card.png");
+    /* background-color: aliceblue; */
+    background-position: center;
+    background-size: 520px;
   }
   
 .flip-card-inner {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
+    margin: 20%;
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.6s;
@@ -62,20 +66,25 @@ h1 {
     position: absolute;
     backface-visibility: hidden;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     font-weight: bold;
-    border: 1px solid #ccc;
-    border-radius: 10px;
 }
 
-.flip-card-front {
-    background: lightblue;
+.paper {
+    background: url("../images/paper.png");
 }
-
+.plastic {
+    background: url("../images/plastic.png");
+}
+.stone {
+    background: url("../images/stone.png");
+}
 .flip-card-back {
-    background: lightcoral;
+    letter-spacing: 2px;
+    background: rgb(0, 0, 0);
     transform: rotateY(180deg);
 }
 
@@ -131,11 +140,10 @@ svg {
     position: relative;
 }
 
+/* Первый блок */
 .fst {
-    background-image: url("https://i.pinimg.com/736x/8b/af/ed/8bafed5780cf626db4c8db3136c2198f.jpg");
     background-repeat: no-repeat;
-    background-position: center;
-    /* transform: translate(-50%, -50%); */
+    background-position: revert;
 }
 .fst img {
     position: absolute;
@@ -168,44 +176,35 @@ svg {
 }
 .fst h1 {
     position: relative;
-    margin: -10% 0 3% 0;
+    margin: 0% 0 3% 0;
     text-align: center;
 }
-.fst :nth-child(6){
+/* .fst :nth-child(6){
     width: 523px;
     height: 909px;
     right: -100px;
     bottom: -90px;
     rotate: -10deg;
-}
-
+} */
+/* 
 .fst :nth-child(7){
     width: 523px;
     height: 909px;
     right: 80px;
     bottom: -200px;
     rotate: -10deg;
-}
-.thr {
-    display: none;
-}
-.thr h1 {
-    position: relative;
-    margin-top: 10%;
-}
+} */
 
+/* Второй блок */
 .sec {
-    display: none;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .background-image {
     width: 100%;
@@ -217,6 +216,10 @@ svg {
     z-index: 1; 
 }
 
+.sec div {
+    height: 80%;
+    width: 80%;
+}
 .sec .bg {
     position: absolute; /* Позиционируем .bg абсолютно */
     top: 50%; /* Центрируем вертикально */
@@ -229,4 +232,132 @@ svg {
     background-position: center;
     z-index: 2; /* Убедимся, что .bg находится над изображением */
 
+}
+
+/* Третий блок */
+.thr {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.thr h1 {
+    position: relative;
+    margin-top: 10%;
+}
+.thr img {
+    height: 300px;
+}
+.forms {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.forms :nth-child(1){
+    position: absolute;
+    left: 30%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+
+.forms :nth-child(2){
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+
+.forms :nth-child(3){
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+.forms *:hover {
+    cursor: pointer;
+    transform: scale(1.1) translate(-50%, -50%);
+}
+
+.corner-border-element {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.corner-border-element.corner-border {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8);
+}
+
+.four {
+    display: flex;
+    align-content: center;
+    background: url(../images/bg_choice.png);
+    
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+/* точки на карте */
+.place_material, .place_figure, .tape, .tape-2{
+    position: absolute;
+    height: 200px;
+    width: auto;
+    z-index: 3;
+}
+
+.place_figure {
+    top: 23%;
+    left: 60.5%;
+}
+
+.place_material {
+    top: 50%;
+    left: 50%
+}
+.tape {
+    height: 120px;
+    width: auto;
+    top: 10%;
+    left: 10%;
+    rotate: -40deg;
+}
+
+.tape-2 {
+    height: 120px;
+    width: auto;
+    bottom: 10%;
+    right: 10%;
+    rotate: -25deg;
+}
+
+/* Пузырьки на начальном экране */
+.blister._1 {
+    height: 150px;
+    bottom: 10%;
+    right: 7%;
+}
+
+.blister._2 {
+    height: 70px;
+    bottom: 14%;
+    right: 14%;
+}
+
+.blister._3 {
+    height: 200px;
+    bottom: 7%;
+    right: 14%;
+}
+
+.blister._4 {
+    height: 130px;
+    bottom: 17%;
+    right: 20%;
 }
