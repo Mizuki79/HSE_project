@@ -1,70 +1,76 @@
-// определояем рандомное положение для лампочки
-function randomPositionInContainer(element, container) {
-    const containerWidth = container.offsetWidth;
-    const containerHeight = container.offsetHeight;
-    const elementWidth = element.offsetWidth;
-    const elementHeight = element.offsetHeight;
+// Функция для анимации кругового движения
+function startCircularMotion(element, radius, speed, direction, x, y) {
+    let angle = 0;
+    const centerX = x;
+    const centerY = y;
     
-    // Генерируем случайные координаты внутри контейнера
-    const randomX = Math.floor(Math.random() * containerWidth);
-    const randomY = 100;
-    
-    // Устанавливаем позицию элемента
-    element.style.position = 'absolute';
-    element.style.left = `${randomX}px`;
-    element.style.top = `${randomY}px`;
-    
-    // Проверяем, существует ли уже линия, если да — удаляем её
-    let existingLine = container.querySelector('.vertical-line');
-    if (existingLine) {
-        existingLine.remove();
+    function animate() {
+        angle += direction * speed;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        element.style.transform = `translate(${x}px, ${y}px)`;
+        requestAnimationFrame(animate);
     }
     
-    // Создаем линию
-    let line = document.createElement('div');
-    line.classList.add('vertical-line');
-    line.id = 'line';
-    line.style.position = 'absolute';
-    line.style.left = `${randomX + 25}px`; // Центрируем линию относительно элемента
-    line.style.top = '0px';
-    line.style.width = '2px';
-    line.style.height = `${randomY + 11}px`; // Длина линии до элемента
-    line.style.zIndex = 2; 
-    line.style.background = '#120d09';
-    line.style.borderRadius = '10px'
+    animate();
+}
+
+// Функция для анимации вращения
+function startRotation(element, speed) {
+    let rotation = 0;
     
-    // Добавляем линию в контейнер
-    container.appendChild(line);
+    function rotate() {
+        rotation += speed;
+        element.style.transform = `rotate(${rotation}deg)`;
+        requestAnimationFrame(rotate);
+    }
+    
+    rotate();
 }
 
-
-// ставим курсор котика
-function setCustomCursor(imageUrl, hotSpotX = 10, hotSpotY = 10) {
-    const cursorStyle = `url('${imageUrl}') ${hotSpotX} ${hotSpotY}, auto`;
-    document.body.style.cursor = cursorStyle;
+// Функция для анимации вращения туда сюда
+function startSwing(element, angleRange, speed, initialDirection = 1) {
+    let angle = initialDirection > 0 ? angleRange : -angleRange;
+    let direction = initialDirection;
+    
+    function swing() {
+        angle += direction * speed;
+        if (angle > angleRange || angle < -angleRange) {
+            direction *= -1;
+        }
+        element.style.transform = `rotate(${angle}deg)`;
+        requestAnimationFrame(swing);
+    }
+    
+    swing();
 }
 
-// при загрузке страницы создаем лампочку и меняем курсос 
-document.addEventListener('DOMContentLoaded', () => {
-    const lamp = document.getElementById('lamp');
-    randomPositionInContainer(lamp, document.body);
-})
+const bouble_1 = document.getElementById('bouble-1');
+const bouble_2 = document.getElementById('bouble-2');
+startCircularMotion(bouble_1, 110, 0.02, 1, 60, 90)
+startCircularMotion(bouble_2, 150, 0.01, -1, 130, -50)
 
-// получаем элемент затемненного слоя
-const overlay = document.querySelector('.overlay');
+const ring_bouble = document.getElementById('ring_bouble');
+startRotation(ring_bouble, 0.5);
 
-// обновляем позицию светового круга при движении курсора
-document.addEventListener('mousemove', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    overlay.style.setProperty('--x', `${x}px`);
-    overlay.style.setProperty('--y', `${y}px`);
-});
+const ring_bouble_1 = document.getElementById('ring_bouble_1');
+const ring_bouble_2 = document.getElementById('ring_bouble_2');
+startSwing(ring_bouble_1, 5, 0.5);
+startSwing(ring_bouble_2, 5, 0.5, -1);
 
-document.getElementById('lamp').addEventListener('click', () => {
-    document.getElementById('overlay').remove();
-    document.getElementById('startPage').remove();
-    document.getElementById('lamp_png').src = 'images/lamp_on.png';
-    setCustomCursor('images/cursor_main_page.png');
-    document.body.style.overflow = 'visible';
+document.querySelector(".handdrawn-button").addEventListener("click", () => {
+    const textElement = document.querySelector('.handdrawn-button');
+    const textElement2 = document.querySelector('.greeting');
+    textElement.classList.remove('shake');
+    textElement2.classList.remove('shake');
+    // Принудительно перерисовываем элемент, чтобы анимация сработала снова
+    void textElement.offsetWidth;
+    void textElement2.offsetWidth;
+
+    textElement.classList.add('shake');
+    textElement2.classList.add('shake');
+    setTimeout(() => { 
+    document.querySelector(".fst").style.display = "none";
+    document.querySelector(".sec").style.display = "block";
+    }, 500);
 });

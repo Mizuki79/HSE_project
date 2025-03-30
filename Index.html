@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="fonts.css" />
-    <link rel="stylesheet" type="text/css" href="layout.css" />
-    <link rel="stylesheet" type="text/css" href="adaptive.css" />
-    <link rel="stylesheet" type="text/css" href="animation.css" />
     <link href="stylesheets/style.css" rel="stylesheet" />
     <title>HSE Project</title>
 </head>
@@ -16,12 +11,40 @@
 <body>
     
     <!-- Первый блок страницы -->
-    <div class="block fst">
-        <img src="images/ring_bouble.png" class="ring_bouble"/>
-        <img src="images/bouble.png" />
-        <img src="images/bouble.png" />
-        <h1>Фестиваль текстур</h2>
+    <div class="block fst" id="fst">
+        <h1 class="greeting">Фестиваль текстур</h1>
+        <div>
+            <svg>
+                <filter id="roughEdges">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+                </filter>
+            </svg>
+            <a class="handdrawn-button">Пойду!</a>
+        </div>
+        <img src="images/ring_bouble.png" class="ring_bouble" id="ring_bouble"/>
+        <img src="images/bouble.png" id="bouble-1" />
+        <img src="images/bouble.png" id="bouble-2"/>
+        <img src="images/ring_bouble_2.svg" id="ring_bouble_1"/>
+        <img src="images/ring_bouble_2.svg" id="ring_bouble_2"/>
     </div>
+    <div class="block sec">
+        <img src="images/bg_block-2.png" class="background-image"/>
+        <div>
+            <img src="images/map.png" class="bg"/>
+        </div>
+    </div>
+    <div class="block thr">
+        <h1>Выбери свою фигуру</h1>
+        <div>
+            <button id="3">три</button>
+            <img src="images/form_1_no-color.svg">
+            <img src="images/form_2_no-color.svg">
+            <img src="images/form_3_no-color.svg">
+        </div>
+    </div>
+    <!-- <div id="test"></div> -->
+    <!-- <script type="module" src="javascript/3d_blur.js"></script> -->
 </body>
 <script src="javascript/index.js"></script>
 
