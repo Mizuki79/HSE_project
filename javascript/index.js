@@ -94,6 +94,22 @@ document.querySelectorAll('.corner-border-element').forEach(element => {
     });
 });
 
+document.querySelectorAll('.texture').forEach(element => {
+    element.addEventListener('click', function() {
+        // Проверяем, имеет ли элемент класс corner-border
+        if (this.classList.contains('corner-border')) {
+            // Если имеет, удаляем класс
+            this.classList.remove('corner-border');
+        } else {
+            // Если не имеет, удаляем класс у всех элементов и добавляем к текущему
+            document.querySelectorAll('.texture').forEach(el => {
+                el.classList.remove('corner-border');
+            });
+            this.classList.add('corner-border');
+        }
+    });
+});
+
 // двигаем спиралью пузырьки
 
 function animateElement(element, rotationSpeed, liftSpeed, maxHeight, swayWidth, initialDirection) {
@@ -136,3 +152,32 @@ elements.forEach((element, index) => {
 
     animateElement(element, randomRotationSpeed, randomLiftSpeed, randomMaxHeight, randomSwayWidth, initialDirection);
 });
+
+// Сохранение данных в localStorage
+document.querySelectorAll(".save_button").forEach(button => {
+    button.addEventListener("click", () => {
+        const allElements = document.querySelectorAll('*');
+        // Фильтруем элементы, у которых есть box-shadow
+        const chooseElems = Array.from(allElements).filter(element => {
+            const boxShadow = window.getComputedStyle(element).boxShadow;
+            return boxShadow !== 'none';
+        });
+        ids = chooseElems.map(elem => elem.id);
+        localStorage.setItem('ids', JSON.stringify(ids));
+    });
+}); 
+
+// Добавляем элемент загрузки
+document.querySelectorAll(".convert_button").forEach(button => {
+    button.addEventListener("click", () => {
+        const loader = document.getElementById('loader');
+        loader.style.display = 'block'; // Показываем элемент загрузки
+
+        setTimeout(() => {
+            loader.style.display = 'none';
+            localStorage.getItem('ids', JSON.stringify(ids));
+            document.querySelector("final-img").src = "";
+        }, 2000);
+    });
+});
+

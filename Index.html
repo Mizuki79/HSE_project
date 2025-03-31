@@ -89,16 +89,36 @@
         <!-- Формы -->
         <div class="forms">
             <div>
-                <img src="images/form_2_no-color.svg" class="corner-border-element">
+                <img src="images/form_2_no-color.svg" class="corner-border-element" id="blot">
             </div>
             <div class="flex">
-                <img src="images/duck.png" class="corner-border-element">
-                <img src="images/form_3.png" class="corner-border-element">
+                <img src="images/duck.png" class="corner-border-element" id="duck">
+                <img src="images/form_3.png" class="corner-border-element" id="hedgehog">
             </div>
             <div>
                 <button class="save_button">Готово</button>
             </div>
         </div>
+    </div>
+    <div class="block fiv">
+        <h1>Выбери текстуру</h1>
+        <div class="flex">
+            <img src="images/stone_ball.png" class="texture" id="stone"/>
+            <img src="images/wood_ball.png" class="texture" id="wood"/>
+        </div>
+        <div class="flex">
+            <img src="images/iron_ball.png"  class="texture" id="iron"/>
+        </div>
+        <img src="images/Vector.png" class="absolute"/>
+        <div class="flex">
+            <button class="save_button">Готово</button>
+        </div>
+    </div>
+    <div class="block six">
+        <h1>Конвертируй готовый результат!</h1>
+        <button class="convert_button">Конвертировать</button>
+        <div class="loader" id="loader"></div>
+        <img src="" class="final-img"/>
     </div>
 </body>
 <script src="javascript/index.js"></script>
