@@ -200,7 +200,7 @@ svg {
 
 .sec-div {
     height: 80%;
-    width: 80%;
+    width: 85%;
     background: url(../images/map.png);     
     background-position: center;
     background-size: cover;
@@ -212,30 +212,20 @@ svg {
     display: none;
 }
 
-.place_figure, .place_material, .gift, .book {
+.place_figure, .place_material {
     position: absolute;
     height: 125px;
     z-index: 10;
 }
-.place_figure, .gift {
+.place_figure{
     left: 62%;
     top: 25%;
 }
-.place_material, .book {
+.place_material{
     left: 50%;
     top: 52%;
 }
-.book {
-    height: 50px;
-    left: 51.6%;
-    top: 56.2%;
-}
-.gift {
-    left: 63.6%;
-    top: 29%;
-    height: 50px;
-    z-index: 100;
-}
+
 
 /* Третий блок */
 .thr {
@@ -599,4 +589,27 @@ svg {
     .six{
         padding-top: 300px;
     }
+  }
+  @media (max-width: 380px) {
+    .fiv {
+        padding-top: 500px;
+    }
+  }
+
+  /* Скотч на карте */
+  #tape_1, #tape_2 {
+    position: absolute;
+    height: 100px;
+    rotate: -60deg;
+  }
+  #tape_1 {
+    left: 3%;
+    top: 10%;
+
+  }
+
+  #tape_2 {
+    right: 3%;
+    bottom: 10%;
+    rotate: -50deg;
   }

@@ -183,13 +183,13 @@ document.querySelectorAll(".convert_button").forEach(button => {
                     combined = data[0] + data[1]
                     switch (combined){
                         case "duckwood":
-                            document.querySelector(".final-img").src = "../images/";
+                            document.querySelector(".final-img").src = "images/wood/duck_wood.png";
                             break;
                         case "duckiron":
                             document.querySelector(".final-img").src = "images/silver/ducks.png";
                             break;
                         case "duckstone":
-                            document.querySelector(".final-img").src = "";
+                            document.querySelector(".final-img").src = "images/stone/duckStone.png";
                             break;
                         case "blotwood":
                             document.querySelector(".final-img").src = "images/wood/blotwood.png";
