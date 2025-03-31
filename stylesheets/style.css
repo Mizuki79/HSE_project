@@ -228,16 +228,19 @@ svg {
 
 /* Третий блок */
 .thr {
-    display: block;
+    padding-top: 15%;
+    display: flex;
+    align-items: center;
+    align-content: center;
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 100%;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
+    padding-bottom: 30%;
 }
 .thr h1 {
     position: relative;
-    margin-top: 10%;
 }
 .thr img {
     height: 300px;
@@ -276,6 +279,7 @@ svg {
 }
 /* четвертый блок */
 .four {
+    margin-top: 5%;
     display: flex;
     align-content: center;
     background: url(../images/bg_choice.png);
@@ -291,39 +295,6 @@ svg {
     align-content: center;
     flex-wrap: wrap;
 }
-
-/* точки на карте */
-.place_material, .place_figure, .tape, .tape-2{
-    position: absolute;
-    height: 15vh;
-    width: auto;
-    z-index: 3;
-}
-
-/* .place_figure {
-    top: 23%;
-    left: 60.5%;
-} */
-
-/* .place_material {
-    top: 50%;
-    left: 50%
-} */
-/* .tape {
-    height: 10vh;
-    width: auto;
-    top: 12%;
-    left: 11%;
-    rotate: -40deg;
-}
-
-.tape-2 {
-    height: 10%;
-    width: auto;
-    bottom: 10%;
-    right: 10%;
-    rotate: -25deg;
-} */
 
 /* Пузырьки на начальном экране */
 .blister._1 {
@@ -442,11 +413,14 @@ svg {
         margin: 15%;
     }
 
+    .fiv {
+        margin-top: 300px;
+    }
+
   }
 
   /* Пятый  блок */
   .fiv {
-    margin-top: 10%;
     height: 100%;
     text-align: center;
     display: flex;
@@ -478,6 +452,7 @@ svg {
 
   /* 6 блок */
   .six {
+    text-align: center;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -518,7 +493,7 @@ svg {
     height: 96px;
     border: 2px solid #ffffff;
     border-radius: 50%;
-    display: inline-block;
+    display: none;
     position: relative;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
