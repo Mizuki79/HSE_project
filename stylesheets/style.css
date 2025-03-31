@@ -376,7 +376,7 @@ svg {
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     h1 {
         font-size: 32px;
       }

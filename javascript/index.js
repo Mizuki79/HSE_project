@@ -186,28 +186,28 @@ document.querySelectorAll(".convert_button").forEach(button => {
                             document.querySelector(".final-img").src = "../images/";
                             break;
                         case "duckiron":
-                            document.querySelector(".final-img").src = "../images/silver/ducks.png";
+                            document.querySelector(".final-img").src = "images/silver/ducks.png";
                             break;
                         case "duckstone":
-                            document.querySelector(".final-img").src = "../";
+                            document.querySelector(".final-img").src = "";
                             break;
                         case "blotwood":
-                            document.querySelector(".final-img").src = "../images/wood/blotwood.png";
+                            document.querySelector(".final-img").src = "images/wood/blotwood.png";
                             break;
                         case "blotiron":
-                            document.querySelector(".final-img").src = "../images/silver/blot.png";
+                            document.querySelector(".final-img").src = "images/silver/blot.png";
                             break;
                         case "blotstone":
-                            document.querySelector(".final-img").src = "../images/stone/blotstone.png";
+                            document.querySelector(".final-img").src = "images/stone/blotstone.png";
                             break;
                         case "hedgehogwood":
-                            document.querySelector(".final-img").src = "../images/wood/hedgehog.png";
+                            document.querySelector(".final-img").src = "images/wood/hedgehog.png";
                             break;
                         case "hedgehogiron":
-                            document.querySelector(".final-img").src = "../images/silver/hedgehock.png";
+                            document.querySelector(".final-img").src = "images/silver/hedgehock.png";
                             break;
                         case "hedgehogstone":
-                            document.querySelector(".final-img").src = "../images/stone/hedgehogstone.png";
+                            document.querySelector(".final-img").src = "images/stone/hedgehogstone.png";
                             break;
                         default:
                             console.log("Комбинация не найдена");
