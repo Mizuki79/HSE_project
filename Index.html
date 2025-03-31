@@ -13,6 +13,7 @@
     <!-- Первый блок страницы -->
     <div class="block fst" id="fst">
         <h1 class="greeting">Фестиваль текстур</h1>
+        <!-- Кнопка действия -->
         <div>
             <svg>
                 <filter id="roughEdges">
@@ -22,6 +23,7 @@
             </svg>
             <a class="handdrawn-button">Пойду!</a>
         </div>
+        <!-- Картинки -->
         <img src="images/ring_bouble.png" class="ring_bouble" id="ring_bouble"/>
         <img src="images/bouble.png" id="bouble-1" />
         <img src="images/bouble.png" id="bouble-2"/>
@@ -29,25 +31,24 @@
         <img src="images/blister.png" class="blister _2"/>
         <img src="images/blister.png" class="blister _3"/>
         <img src="images/blister.png" class="blister _4"/>
-        
-        <!-- <img src="images/ring_bouble_2.svg" id="ring_bouble_1"/>
-        <img src="images/ring_bouble_2.svg" id="ring_bouble_2"/> -->
     </div>
+    <!-- Второй блок -->
     <div class="block sec">
-        <img src="images/bg_block-2.png" class="background-image"/>
         <div class="sec-div">
-            <img src="images/map.png" class="bg"/>
-            <a href="#figure">
+            <h1>Карта фестиваля</h1>
+            <!-- <a href="#figure">
                 <img src="images/place.png" class="place_figure"/>
-            </a>
-            <a href="#material">
+            </a> -->
+            <!-- <a href="#material">
                 <img src="images/place.png" class="place_material"/>
-            </a>
-            <img src="images/tape.png" class="tape"/>
-            <img src="images/tape.png" class="tape-2"/>
+            </a> -->
+            <!-- <img src="images/tape.png" class="tape"/> -->
+            <!-- <img src="images/tape.png" class="tape-2"/> -->
         </div>
     </div>
+    <!-- Третий блок -->
     <div class="block four" id="material">
+        <!-- Флип карта с бумагой -->
         <div class="container">
             <div class="flip-card">
                 <div class="flip-card-inner paper">
@@ -59,6 +60,7 @@
                 </div>
             </div>
         </div>
+        <!-- Флип карта с пластиком  -->
         <div class="container">
             <div class="flip-card">
                 <div class="flip-card-inner plastic" >
@@ -69,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Флип карта с камнем -->
             <div class="flip-card">
                 <div class="flip-card-inner stone">
                     <div class="flip-card-front">
@@ -80,12 +83,21 @@
             </div>
         </div>
     </div>
+    <!-- Блок 4 -->
     <div class="block thr" id="figure">
         <h1>Создай игрушку на память</h1>
+        <!-- Формы -->
         <div class="forms">
-            <img src="images/form_2_no-color.svg" class="corner-border-element">
-            <img src="images/duck.png" class="corner-border-element">
-            <img src="images/form_3.png" class="corner-border-element">
+            <div>
+                <img src="images/form_2_no-color.svg" class="corner-border-element">
+            </div>
+            <div class="flex">
+                <img src="images/duck.png" class="corner-border-element">
+                <img src="images/form_3.png" class="corner-border-element">
+            </div>
+            <div>
+                <button class="save_button">Готово</button>
+            </div>
         </div>
     </div>
 </body>

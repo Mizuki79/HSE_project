@@ -197,41 +197,32 @@ svg {
 
 /* Второй блок */
 .sec {
-    background-repeat: no-repeat;
-    background-position: center;
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: relative;
-    display: flex;
+    display: none;
     justify-content: center;
-}
-.background-image {
-    width: 100%;
-    height: 100%; 
-
-    position: absolute; 
-    top: 0;
-    left: 0;
-    z-index: 1; 
+    align-items: center;
+    align-content: center;
 }
 
-.sec div {
-    height: 80%;
-    width: 80%;
-}
-.sec .bg {
-    position: absolute; /* Позиционируем .bg абсолютно */
-    top: 50%; /* Центрируем вертикально */
-    left: 50%; /* Центрируем горизонтально */
-    transform: translate(-50%, -50%); /* Смещаем на половину своей ширины и высоты */
-    width: 70%; /* Ширина .bg */
-    height: 70%; /* Высота .bg */
-    background: url(../images/map.png); /* Фоновое изображение для .bg */
+.sec-div {
+    rotate: 90deg;
+    height: 100%;
+    width: 70%;
+    background: url(../images/map.png);     
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 2; /* Убедимся, что .bg находится над изображением */
-
+    border-radius: 10%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.sec-div h1{
+    font-size: 56px;
+    z-index: 5;
+    rotate: -90deg;
 }
 
 /* Третий блок */
@@ -254,33 +245,24 @@ svg {
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-direction: column;
 }
-.forms :nth-child(1){
-    position: absolute;
-    left: 30%;
-    bottom: 0;
-    transform: translate(-50%, -50%);
+.flex {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.forms img{   
     transition: transform 0.2s ease;
 }
 
-.forms :nth-child(2){
-    position: absolute;
-    left: 50%;
-    top: 150px;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease;
-}
-
-.forms :nth-child(3){
-    position: absolute;
-    right: 10%;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease;
-}
-.forms *:hover {
+.forms img:hover {
     cursor: pointer;
-    transform: scale(1.1) translate(-50%, -50%);
+    transform: scale(1.1);
 }
 
 .corner-border-element {
@@ -291,73 +273,88 @@ svg {
 .corner-border-element.corner-border {
     box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8);
 }
-
+/* четвертый блок */
 .four {
     display: flex;
     align-content: center;
     background: url(../images/bg_choice.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+    font-weight: 100px;
     
 }
 .container {
     display: flex;
     justify-content: space-around;
     align-content: center;
+    flex-wrap: wrap;
 }
 
 /* точки на карте */
 .place_material, .place_figure, .tape, .tape-2{
     position: absolute;
-    height: 200px;
+    height: 15vh;
     width: auto;
     z-index: 3;
 }
 
-.place_figure {
+/* .place_figure {
     top: 23%;
     left: 60.5%;
-}
+} */
 
-.place_material {
+/* .place_material {
     top: 50%;
     left: 50%
-}
-.tape {
-    height: 120px;
+} */
+/* .tape {
+    height: 10vh;
     width: auto;
-    top: 10%;
-    left: 10%;
+    top: 12%;
+    left: 11%;
     rotate: -40deg;
 }
 
 .tape-2 {
-    height: 120px;
+    height: 10%;
     width: auto;
     bottom: 10%;
     right: 10%;
     rotate: -25deg;
-}
+} */
 
 /* Пузырьки на начальном экране */
 .blister._1 {
     height: 150px;
     bottom: 10%;
-    right: 7%;
+    right: 5%;
 }
 
 .blister._2 {
     height: 70px;
     bottom: 14%;
-    right: 14%;
+    right: 12%;
 }
 
 .blister._3 {
     height: 200px;
     bottom: 7%;
-    right: 14%;
+    right: 12%;
 }
 
 .blister._4 {
     height: 130px;
     bottom: 17%;
-    right: 20%;
+    right: 18%;
+}
+/* Кнопка сохранить */
+.save_button {
+    position: relative;
+    padding: 7px 5px 7px 5px;
+    border-radius: 10%;
+    width: 130px;
+    font-family: var(--gen-font);
+    font-size: 32px;
+    font-weight: 100;
 }

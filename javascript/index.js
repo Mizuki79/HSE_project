@@ -71,6 +71,7 @@ document.querySelector(".handdrawn-button").addEventListener("click", () => {
     textElement2.classList.add('shake');
     setTimeout(() => { 
     document.querySelector(".fst").style.display = "none";
+    document.querySelector(".sec").style.display = "flex";
     document.body.style.overflow = "scroll";
 
     }, 500);
@@ -95,32 +96,43 @@ document.querySelectorAll('.corner-border-element').forEach(element => {
 
 // двигаем спиралью пузырьки
 
-const elements = document.querySelectorAll('.blister');
-elements.forEach(element => {
+function animateElement(element, rotationSpeed, liftSpeed, maxHeight, swayWidth, initialDirection) {
     const rect = element.getBoundingClientRect();
+    const startX = rect.left;
+    const startY = rect.top;
     
-    const startX = rect.left;  // Начальная X-координата элемента
-    const startY = rect.top;   // Начальная Y-координата элемента
-    
-    const maxHeight = window.innerHeight * 0.5; // Максимальная высота подъема
     let angle = 0;
-    let direction = 1;
+    let direction = initialDirection;
+    let currentHeight = 0;
     
     function animate() {
-        angle += 0.4 * direction;
-        const x = startX + Math.sin(angle) * 40;
-        const y = startY - (angle * 5 * direction);
+        angle += rotationSpeed * direction;
+        currentHeight += liftSpeed * direction;
+
+        const x = startX + Math.sin(angle) * swayWidth;
+        const y = startY - currentHeight;
         
         element.style.transform = `translate(${x - rect.left}px, ${y - rect.top}px)`;
         
-        if (y <= startY - maxHeight) {
-            direction = -1; // Начинаем движение вниз
-        } else if (y >= startY) {
-            direction = 1; // Начинаем движение вверх
+        if (currentHeight >= maxHeight) {
+            direction = -1; 
+        } else if (currentHeight <= 0) {
+            direction = 1;
         }
         
         requestAnimationFrame(animate);
     }
     
     animate();
+}
+
+const elements = document.querySelectorAll('.blister');
+elements.forEach((element, index) => {
+    const randomRotationSpeed = Math.random() * 0.1 + 0.05; // 0.05 - 0.15
+    const randomLiftSpeed = Math.random() * 3 + 2; // 2 - 5
+    const randomMaxHeight = window.innerHeight * (Math.random() * 0.5 + 0.2); // 40% - 70% высоты экрана
+    const randomSwayWidth = Math.random() * 30 + 20; // 20 - 50 пикселей
+    const initialDirection = Math.random() > 0.5 ? 1 : -1; // Рандомное начальное направление
+
+    animateElement(element, randomRotationSpeed, randomLiftSpeed, randomMaxHeight, randomSwayWidth, initialDirection);
 });
