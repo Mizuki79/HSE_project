@@ -31,7 +31,7 @@ body {
 
 h1 {
     font-size: 72px;
-    letter-spacing: 0.2cap;
+    letter-spacing: 0.1cap;
     font-weight: 400;
 }
 
@@ -180,24 +180,10 @@ svg {
     margin: 0% 0 3% 0;
     text-align: center;
 }
-/* .fst :nth-child(6){
-    width: 523px;
-    height: 909px;
-    right: -100px;
-    bottom: -90px;
-    rotate: -10deg;
-} */
-/* 
-.fst :nth-child(7){
-    width: 523px;
-    height: 909px;
-    right: 80px;
-    bottom: -200px;
-    rotate: -10deg;
-} */
 
 /* Второй блок */
 .sec {
+    margin-top: 2%;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -215,7 +201,7 @@ svg {
     background: url(../images/map.png);     
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 10%;
+    border-radius: 30%;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -480,7 +466,9 @@ svg {
 .convert_button:hover {
     transform: scale(1.1);
 }
-
+.six img {
+    height: 350px;
+}
 .load_button {
     padding: 10px 20px;
     font-size: 16px;
@@ -520,3 +508,22 @@ svg {
       transform: rotate(360deg);
     }
   } 
+/* Ошибка */
+  .error {
+    font-size: 32px;
+    margin-top: 5%;
+    color: rgb(136, 20, 20);
+    visibility: hidden;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 10%;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 100;
+    color: #ffcfcf;
+    letter-spacing: 2px;
+  }

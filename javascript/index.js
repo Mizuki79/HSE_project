@@ -175,8 +175,50 @@ document.querySelectorAll(".convert_button").forEach(button => {
 
         setTimeout(() => {
             loader.style.display = 'none';
-            localStorage.getItem('ids', JSON.stringify(ids));
-            document.querySelector("final-img").src = "";
+            try{
+                data = localStorage.getItem('ids');
+                data = JSON.parse(data);
+                if (data.lentgh > 1 || data) {
+                    document.querySelector(".error").style.visibility = "hidden";
+                    combined = data[0] + data[1]
+                    switch (combined){
+                        case "duckwood":
+                            document.querySelector(".final-img").src = "../images/";
+                            break;
+                        case "duckiron":
+                            document.querySelector(".final-img").src = "../images/silver/ducks.png";
+                            break;
+                        case "duckstone":
+                            document.querySelector(".final-img").src = "../";
+                            break;
+                        case "blotwood":
+                            document.querySelector(".final-img").src = "../images/wood/blotwood.png";
+                            break;
+                        case "blotiron":
+                            document.querySelector(".final-img").src = "../images/silver/blot.png";
+                            break;
+                        case "blotstone":
+                            document.querySelector(".final-img").src = "../images/stone/blotstone.png";
+                            break;
+                        case "hedgehogwood":
+                            document.querySelector(".final-img").src = "../images/wood/hedgehog.png";
+                            break;
+                        case "hedgehogiron":
+                            document.querySelector(".final-img").src = "../images/silver/hedgehock.png";
+                            break;
+                        case "hedgehogstone":
+                            document.querySelector(".final-img").src = "../images/stone/hedgehogstone.png";
+                            break;
+                        default:
+                            console.log("Комбинация не найдена");
+                            break;
+                    }
+                }
+            }
+            catch(error) {
+                console.log(error);
+                document.querySelector(".error").style.visibility = "visible";
+            }
         }, 2000);
     });
 });
